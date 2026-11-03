@@ -1,0 +1,226 @@
+.site {
+  --canvas: #ffffff;
+  --tint: #eff2f7;
+  --ink: #12234a;
+  --ink-soft: #47557a;
+  --hairline: #cfd6e4;
+  --navy: #12234a;
+  --on-navy: #ffffff;
+  --on-navy-soft: #d5dcec;
+  --alert: #b3261e;
+  --alert-text: #b3261e;
+  --on-alert: #ffffff;
+  --focus: #1f4fd1;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --max: 78rem;
+  --section: clamp(2.75rem, 6vw, 5rem);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--canvas);
+  color: var(--ink);
+  font-family: var(--font-text), system-ui, sans-serif;
+  font-size: 1.0938rem;
+  line-height: 1.55;
+}
+
+/* Opens white whatever the phone's setting. Dark only when the visitor ticks the header switch, so it needs no JavaScript. */
+.site:has(:global(#theme-toggle):checked) {
+  --canvas: #0d1730;
+  --tint: #16233f;
+  --ink: #f2f5fb;
+  --ink-soft: #b9c3da;
+  --hairline: #33466f;
+  --navy: #1c2f5e;
+  --focus: #9bbcff;
+  --alert-text: #ffb4ad;
+  color-scheme: dark;
+}
+
+.skip { position: absolute; left: -9999px; top: 0.5rem; z-index: 60; background: var(--ink); color: var(--canvas); padding: 0.75rem 1rem; }
+.skip:focus { left: 0.5rem; }
+
+.theme { position: relative; display: inline-flex; }
+.theme input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.theme label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 0.7rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  pointer-events: none;
+}
+.theme input:focus-visible + label { outline: 3px solid var(--focus); outline-offset: 2px; }
+.themeLight { display: none; }
+.site:has(:global(#theme-toggle):checked) .themeDark { display: none; }
+.site:has(:global(#theme-toggle):checked) .themeLight { display: inline; }
+
+.phoneBar { display: none; }
+@media (max-width: 860px) {
+  .site { padding-bottom: 3.5rem; }
+  .phoneBar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 30;
+    background: var(--navy);
+    color: var(--on-navy);
+    box-shadow: 0 -6px 18px -8px rgb(18 35 74 / 0.5);
+  }
+  .phoneBar a { display: flex; align-items: center; justify-content: center; min-height: 3.5rem; padding: 0.25rem 0.5rem; text-align: center; font-weight: 700; line-height: 1.15; }
+  .phoneBar a + a { background: #ffffff; color: #12234a; }
+  .phoneBar a:focus-visible { outline-offset: -5px; }
+}
+
+.site ::selection { background: var(--navy); color: var(--on-navy); }
+
+.site h1, .site h2, .site h3 {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.005em;
+  text-wrap: balance;
+}
+
+.site a:focus-visible, .site summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.main { flex: 1; }
+
+/* Header */
+.header { position: sticky; top: 0; z-index: 40; background: var(--canvas); border-bottom: 1px solid var(--hairline); }
+.headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0.6rem var(--gutter);
+}
+.logo { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 2.75rem; }
+.logoMark { flex: none; width: 2.5rem; height: 2.5rem; color: var(--ink); }
+.logoName { font-family: var(--font-display), system-ui, sans-serif; font-weight: 700; font-size: 1.35rem; line-height: 1.05; }
+.logoSub { display: block; font-weight: 600; font-size: 0.875rem; color: var(--ink-soft); }
+
+.nav { display: flex; align-items: center; gap: 0.25rem 1.5rem; margin-right: auto; margin-left: 1rem; }
+.nav a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 600; }
+@media (hover: hover) and (pointer: fine) {
+  .nav a:hover { text-decoration: underline; text-underline-offset: 0.3em; text-decoration-thickness: 2px; }
+}
+
+.headerEnd { display: flex; align-items: center; gap: 0.5rem; }
+.call {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 2.75rem;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.05;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.callNote { font-family: var(--font-text), system-ui, sans-serif; font-weight: 600; font-size: 0.8125rem; color: var(--ink-soft); }
+
+.menu { display: none; position: relative; }
+.menu summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.75rem;
+  box-shadow: inset 0 0 0 2px currentColor;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+.menu summary::-webkit-details-marker { display: none; }
+.menu ul {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 0.4rem);
+  z-index: 20;
+  min-width: 13rem;
+  padding: 0.4rem;
+  list-style: none;
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 12px 28px -12px rgb(18 35 74 / 0.45);
+}
+.menu li a { display: flex; align-items: center; min-height: 2.75rem; padding: 0 0.6rem; font-weight: 600; }
+
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .menu { display: block; }
+  .call { font-size: 1.15rem; }
+  .callNote { display: none; }
+}
+@media (max-width: 400px) {
+  .logoMark { width: 2.2rem; height: 2.2rem; }
+  .logoName { font-size: 1.15rem; }
+  .call { font-size: 1.05rem; }
+}
+
+/* Footer */
+.footer { background: var(--tint); }
+.footerInner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: clamp(1.75rem, 5vw, 4rem);
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 3.5rem) var(--gutter) 1.5rem;
+}
+.safety {
+  align-self: start;
+  background: var(--canvas);
+  padding: 1.25rem 1.5rem;
+  border-top: 6px solid var(--alert);
+}
+.safety h2 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+.safety p + p { margin-top: 0.5rem; }
+.safety a { font-weight: 700; text-decoration: underline; text-underline-offset: 0.15em; white-space: nowrap; }
+
+.details { display: grid; gap: 1rem; align-content: start; }
+.details h2 { font-size: 1.4rem; }
+.details address { font-style: normal; }
+.details address a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 700; text-decoration: underline; text-underline-offset: 0.15em; }
+.details dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 0 1rem; }
+.details dd { margin: 0; font-variant-numeric: tabular-nums; }
+.footLinks { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1.1rem; }
+.footLinks a { display: inline-flex; align-items: center; min-height: 2.75rem; text-decoration: underline; text-underline-offset: 0.2em; }
+.small { color: var(--ink-soft); font-size: 0.9375rem; }
+.small a, .credits a { text-decoration: underline; text-underline-offset: 0.15em; }
+.credits {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter) 1.75rem;
+  color: var(--ink-soft);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .footerInner { grid-template-columns: minmax(0, 1fr); }
+  .safety { padding: 1.1rem; }
+}
+
+/* The fixed bar at the bottom of phones already has the phone number. */
+@media (max-width: 860px) {
+  .call { display: none; }
+}
+
+@media (max-width: 860px) {
+  .phoneBar { grid-template-columns: 1fr 1fr 1fr; }
+  .phoneBar a { font-size: 0.9375rem; }
+}
+
+.phoneBar a:focus-visible { outline-color: #ffffff; }
+.phoneBar a + a:focus-visible { outline-color: #12234a; }

@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-03",
+  "url": "https://demo-plumbers.whynotmedia.workers.dev",
+  "summary": {
+    "home": {
+      "runs": 5,
+      "performance": 98,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 66,
+      "lcpMs": 2454
+    },
+    "checkout": {
+      "runs": 5,
+      "performance": 100,
+      "accessibility": 100,
+      "bestPractices": 100,
+      "seo": 66,
+      "lcpMs": 950
+    }
+  }
+}

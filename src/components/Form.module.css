@@ -1,0 +1,46 @@
+.form { display: grid; gap: 1.1rem; max-width: 40rem; }
+.field { display: grid; gap: 0.3rem; }
+.field label, .field legend { font-weight: 600; padding: 0; }
+.hint { font-size: 0.9375rem; color: var(--ink-soft); }
+.field input[type="text"], .field input[type="tel"], .field input[type="email"], .field select, .field textarea {
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.5rem 0.7rem;
+  background: var(--canvas);
+  color: inherit;
+  font: inherit;
+  border: 1px solid var(--ink-soft);
+}
+.field textarea { min-height: 8rem; resize: vertical; }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible, .choice input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.field [aria-invalid="true"] { border: 2px solid var(--alert); }
+.error { color: var(--alert-text); font-weight: 600; font-size: 0.9375rem; }
+fieldset.field { border: 0; margin: 0; padding: 0; }
+.choices { display: grid; gap: 0.15rem; margin-top: 0.25rem; }
+.choice { display: flex; align-items: center; gap: 0.6rem; min-height: 2.75rem; cursor: pointer; font-weight: 400 !important; }
+.choice input { width: 1.25rem; height: 1.25rem; flex: none; accent-color: var(--navy); }
+.checkbox { display: flex; align-items: flex-start; gap: 0.6rem; min-height: 2.75rem; padding-top: 0.5rem; cursor: pointer; font-weight: 400 !important; }
+.checkbox input { width: 1.25rem; height: 1.25rem; flex: none; margin-top: 0.15rem; accent-color: var(--navy); }
+.honey { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.submit {
+  justify-self: start;
+  min-height: 3rem;
+  padding: 0.5rem 1.4rem;
+  background: var(--navy);
+  color: var(--on-navy);
+  border: 0;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.submit:disabled { opacity: 0.6; cursor: progress; }
+.submit:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.summary { padding: 0.8rem 1rem; border-left: 5px solid var(--alert); background: var(--tint); }
+.summary a { text-decoration: underline; }
+.summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.summary ul { margin: 0.4rem 0 0; padding-left: 1.1rem; }
+.safety { padding: 0.75rem 1rem; background: #fbeae8; color: #4d0f0a; }
+.safety a { font-weight: 700; text-decoration: underline; }
+.testCard { padding: 0.9rem 1rem; background: var(--tint); border-left: 5px solid var(--ink); }
+.testCard code { font-family: inherit; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+@media (max-width: 560px) { .submit { width: 100%; justify-self: stretch; } }

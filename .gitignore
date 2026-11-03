@@ -1,0 +1,39 @@
+# Secrets: never upload these
+.env
+.env.*
+!.env.example
+
+# Installed packages and build output
+node_modules/
+.next/
+.open-next/
+.wrangler/
+out/
+coverage/
+playwright-report/
+test-results/
+next-env.d.ts
+*.tsbuildinfo
+*.pem
+.dev.vars
+supabase/.temp/
+.DS_Store
+
+# Local tool files
+
+# Private working notes, kept on this laptop and never uploaded
+BRIEF.md
+DECISIONS.md
+SETUP.md
+HANDOFF.md
+GLOSSARY.md
+PREVIEW_NOTES.md
+out/
+
+# Playwright
+playwright/.cache/
+
+# Regenerated at the end, then only the chosen ones are kept
+docs/screenshots/*.png
+.wrangler-tarnfield/
+TARNFIELD_UPDATE.md

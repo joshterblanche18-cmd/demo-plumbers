@@ -1,0 +1,122 @@
+.widget {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: 1rem;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.toggle {
+  min-height: 3rem;
+  padding: 0.5rem 1.1rem;
+  border: 2px solid #ffffff;
+  background: var(--navy);
+  color: var(--on-navy);
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 22px -8px rgb(18 35 74 / 0.6);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: min(25rem, calc(100vw - 2rem));
+  height: min(35rem, calc(100dvh - 8.5rem));
+  background: var(--canvas);
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 18px 44px -14px rgb(18 35 74 / 0.55);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.9rem;
+  background: var(--navy);
+  color: var(--on-navy);
+}
+.head h2 { font-size: 1.3rem; }
+.close { min-height: 2.75rem; padding: 0 0.6rem; background: none; border: 0; color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+
+.log { flex: 1; overflow-y: auto; padding: 0.9rem; display: flex; flex-direction: column; gap: 0.6rem; overscroll-behavior: contain; }
+.intro { color: var(--ink-soft); font-size: 0.9375rem; }
+.starters { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.4rem; }
+.starters button {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.7rem;
+  background: var(--tint);
+  border: 1px solid var(--hairline);
+  color: inherit;
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+}
+.visitor { align-self: flex-end; max-width: 85%; padding: 0.5rem 0.7rem; background: var(--navy); color: var(--on-navy); overflow-wrap: anywhere; }
+.assistant { align-self: flex-start; max-width: 92%; padding: 0.5rem 0.7rem; background: var(--tint); overflow-wrap: anywhere; }
+.writing { color: var(--ink-soft); font-style: italic; }
+.notice { padding: 0.5rem 0.7rem; border-left: 3px solid var(--ink); }
+.notice a { font-weight: 700; text-decoration: underline; }
+.emergency { display: grid; gap: 0.4rem; padding: 0.7rem 0.8rem; background: #fbeae8; color: #4d0f0a; border-top: 5px solid #b3261e; }
+.emergency a { font-weight: 800; text-decoration: underline; white-space: nowrap; }
+
+.handover { min-height: 2.75rem; margin: 0 0.9rem 0.5rem; background: none; border: 0; color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
+.consent { margin: 0 0.9rem 0.6rem; padding: 0.6rem 0.7rem; background: var(--tint); font-size: 0.9375rem; }
+.consent div { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+.consent button { flex: 1; min-height: 2.75rem; border: 2px solid var(--ink); background: none; color: inherit; font-weight: 700; cursor: pointer; }
+.consent button:first-child { background: var(--navy); border-color: var(--navy); color: var(--on-navy); }
+
+.form { display: flex; gap: 0.4rem; padding: 0.6rem; border-top: 1px solid var(--hairline); }
+.form input { flex: 1; min-width: 0; min-height: 2.75rem; padding: 0 0.6rem; font-size: 1rem; background: var(--canvas); color: inherit; border: 1px solid var(--ink-soft); }
+.form button { min-height: 2.75rem; padding: 0 1rem; background: var(--navy); color: var(--on-navy); border: 0; font-weight: 700; cursor: pointer; }
+.form button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.widget button:focus-visible, .widget input:focus-visible, .log:focus-visible, .widget a:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.head button:focus-visible { outline-color: #ffffff; }
+
+@media (max-width: 860px) {
+  .widget { bottom: 4.1rem; right: 0.6rem; }
+  .panel { width: calc(100vw - 1.2rem); height: min(35rem, calc(100dvh - 11rem)); }
+  .toggle { min-height: 2.75rem; padding: 0.3rem 0.8rem; }
+}
+
+.log { min-height: 0; }
+.head, .handover, .consent, .form { flex: none; }
+
+/* Short screens, such as a phone held sideways: the chat fills the screen so nothing is squashed. */
+@media (max-height: 520px) {
+  .panel { position: fixed; inset: 0; z-index: 60; width: 100vw; height: 100dvh; }
+}
+
+.widget button, .widget input { font-family: inherit; }
+
+/* On phones the chat button is the third part of the bottom bar, so it never covers any wording. */
+@media (max-width: 860px) {
+  .widget { bottom: 4rem; right: 0.6rem; }
+  .toggle {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 33.34vw;
+    min-height: 3.5rem;
+    padding: 0.25rem 0.4rem;
+    border: 0;
+    border-left: 1px solid #ffffff;
+    box-shadow: none;
+    line-height: 1.15;
+    font-size: 0.9375rem;
+  }
+  .toggle:focus-visible { outline-color: #ffffff; outline-offset: -5px; }
+}
+
+.log { position: relative; }

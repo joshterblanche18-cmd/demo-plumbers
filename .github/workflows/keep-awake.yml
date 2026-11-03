@@ -1,0 +1,17 @@
+name: Keep the demo database awake
+
+# Free Supabase projects pause after a week with no activity. GitHub may switch this schedule off
+# after 60 days with no changes to the repository, so it needs a check now and then.
+on:
+  schedule:
+    - cron: "23 6 */3 * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  visit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Visit the health check
+        run: curl --fail --silent --show-error --max-time 30 https://demo-plumbers.whynotmedia.workers.dev/api/health

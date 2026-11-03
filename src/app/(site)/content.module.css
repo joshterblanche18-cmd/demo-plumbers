@@ -1,0 +1,71 @@
+.page, .wide { margin: 0 auto; padding: clamp(2rem, 5vw, 3.5rem) var(--gutter) var(--section); }
+.page { max-width: 48rem; }
+.wide { max-width: var(--max); }
+.page h1, .wide h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); }
+.page h2, .wide h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-top: 2.25rem; }
+.lead { margin-top: 0.75rem; font-size: 1.1875rem; color: var(--ink-soft); text-wrap: pretty; }
+.page p + p { margin-top: 0.75rem; }
+.prose h2 + p { margin-top: 0.5rem; }
+.list { margin: 0.75rem 0 0; padding-left: 1.25rem; display: grid; gap: 0.4rem; }
+.links { list-style: none; padding: 0; margin: 0.75rem 0 0; }
+.links li { border-top: 1px solid var(--hairline); }
+.links a { display: flex; align-items: center; min-height: 3rem; font-weight: 700; }
+.inlineLink { font-weight: 700; text-decoration: underline; text-underline-offset: 0.15em; }
+@media (hover: hover) and (pointer: fine) { .links a:hover { text-decoration: underline; text-underline-offset: 0.18em; } }
+
+.serviceHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(1.25rem, 4vw, 3.5rem);
+  align-items: start;
+  margin-top: 0;
+}
+.serviceHead img { width: 100%; height: auto; max-height: 24rem; object-fit: cover; }
+
+.price { display: inline-block; margin-top: 1.25rem; padding: 0.6rem 0.9rem; background: var(--tint); font-weight: 600; }
+.price strong { font-family: var(--font-display), system-ui, sans-serif; font-size: 1.4rem; }
+
+.cta { margin-top: 2.5rem; padding: clamp(1.25rem, 3vw, 2rem); background: var(--navy); color: var(--on-navy); }
+.cta h2 { margin-top: 0; }
+.cta p { margin-top: 0.4rem; color: var(--on-navy-soft); }
+.ctaActions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+.ctaPrimary, .ctaSecondary { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0.5rem 1.2rem; font-weight: 700; white-space: nowrap; }
+.ctaPrimary { background: #ffffff; color: #12234a; }
+.ctaSecondary { box-shadow: inset 0 0 0 2px #ffffff; }
+.cta a:focus-visible { outline-color: #ffffff; }
+
+.alertBox { margin-top: 1.5rem; padding: 1.1rem 1.25rem; background: #fbeae8; color: #4d0f0a; border-top: 6px solid #b3261e; }
+.alertBox h2 { margin: 0 0 0.5rem; font-size: 1.5rem; }
+.alertBox p + p { margin-top: 0.5rem; }
+.alertBox a { display: inline-flex; align-items: center; min-height: 2.75rem; font-weight: 800; text-decoration: underline; white-space: nowrap; }
+.alertBox a:focus-visible { outline-color: #4d0f0a; }
+
+.serviceGrid { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1.25rem, 3vw, 2.5rem); }
+.serviceGrid img { width: 100%; height: 13rem; object-fit: cover; }
+.serviceGrid h2 { margin-top: 0.75rem; font-size: 1.6rem; }
+.serviceGrid h2 a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+.serviceGrid p { margin-top: 0.15rem; color: var(--ink-soft); }
+
+.priceTable { width: 100%; margin-top: 1.25rem; border-collapse: collapse; }
+.priceTable th, .priceTable td { padding: 0.8rem 0.25rem; border-top: 1px solid var(--hairline); text-align: left; }
+.priceTable th[scope="col"] { font-weight: 600; color: var(--ink-soft); border-top: 0; }
+.priceTable td { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; text-align: right; }
+.priceTable th:last-child { text-align: right; }
+.priceTable tbody th { font-weight: 500; }
+
+.faq { margin-top: 1.25rem; border-bottom: 1px solid var(--hairline); }
+.faq details { border-top: 1px solid var(--hairline); }
+.faq summary { display: flex; align-items: center; min-height: 3rem; padding: 0.5rem 0; font-weight: 700; cursor: pointer; }
+.faq details p { padding: 0 0 1rem; color: var(--ink-soft); }
+
+.tableWrap { overflow-x: auto; margin-top: 0.75rem; }
+.tableWrap:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.table { width: 100%; min-width: 44rem; border-collapse: collapse; font-size: 0.9375rem; }
+.table th, .table td { padding: 0.6rem 0.5rem; border-top: 1px solid var(--hairline); text-align: left; vertical-align: top; }
+.table thead th { border-top: 0; color: var(--ink-soft); }
+.linkButton { min-height: 2.75rem; margin-top: 0.5rem; padding: 0; background: none; border: 0; color: inherit; font: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; }
+
+@media (max-width: 760px) {
+  .serviceHead, .serviceGrid { grid-template-columns: minmax(0, 1fr); }
+  .ctaPrimary, .ctaSecondary { flex: 1 1 100%; }
+}
