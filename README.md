@@ -4,7 +4,7 @@
 
 **What was built:** A website for a made-up Aberdeen firm with a working enquiry form, a £25 call-out deposit in test money, and an AI chatbot that only answers from a fixed list of facts.
 
-**Result:** All three work on the live demo, apart from the live checks listed under [Honest limits](#honest-limits). On the last run, 167 unit, 22 integration and 121 browser tests passed. The locked chatbot test scored 23 of 25. Lighthouse on a phone gave the home page 98 for performance and 100 for accessibility. It has no real customers, so it says nothing about how many enquiries a real firm would get.
+**Result:** All three work on the live demo, with the limits listed under [Honest limits](#honest-limits). On the last run, 167 unit, 22 integration and 121 browser tests passed. The locked chatbot test scored 23 of 25. Lighthouse on a phone gave the home page 98 for performance and 100 for accessibility. It has no real customers, so it says nothing about how many enquiries a real firm would get.
 
 Kirkgate is fictional. Nothing is sold, nobody will come out, and no real money moves. Every page says: "Demo website for a fictional business. Nothing is sold."
 
@@ -90,7 +90,7 @@ All measured on 3 November 2026.
 
 ## Honest limits
 
-- **Live tests still to do:** a live enquiry, a passing and a failing test payment, and a refund, each on a real phone. The same steps pass in the browser tests on a local copy, and the live site's checks below pass, but these have not yet been run live.
+- **Tested by hand on the live site on 4 November 2026, on a laptop browser set to phone size, and confirmed in the database and in Stripe:** an enquiry was saved and its email delivered to the demo inbox, a £25 test payment marked its booking as paid, a declined test card left its booking unpaid, and a refund from the admin page went through.
 - **Checked on the live site by script:** 17 pages at phone and laptop sizes, a real chatbot reply, gas advice, the paused message, a forged Stripe message refused, a chat request from another website refused, and missing pages.
 - **Not checked:** real phones and keyboards, real screen readers, the 7-day deletion job running on schedule, and delivery to any address except the demo inbox.
 - **The emergency check matches words.** It can miss an unusual wording, a spelling mistake or another language. The AI has its own safety rule behind it, but a chatbot is not an emergency service. A real firm's site should always show its emergency number.

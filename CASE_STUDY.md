@@ -17,7 +17,7 @@ This demo shows how a firm could handle all of that:
 - A chatbot that answers everyday questions about prices, hours and areas at any time of day, and only from facts you have approved.
 - If someone says they can smell gas, the site tells them straight away what to do and gives the real gas emergency number.
 
-It works on the demo site, with the live checks listed below still to finish. It is a demo with no real customers, so it cannot tell you how many more enquiries you would get.
+It works on the live demo site. It is a demo with no real customers, so it cannot tell you how many more enquiries you would get.
 
 ## The numbers
 
@@ -28,7 +28,7 @@ Measured on 3 November 2026.
 - **Missed: Lighthouse SEO scored 66, not 100.** This is only because the site asks search engines not to list it, so a pretend plumber never shows up in a real search.
 - **Missed: the chatbot test scored 23 of 25 on the final code.** The 25 questions were locked before any chatbot code was written. Earlier runs scored 25. Both failures were correct refusals that tripped a banned phrase, though one reply was also a sentence too long. The test was not changed.
 - **Running cost:** the hosting, database and email are on free plans. The chatbot is capped at under £0.10 a day, so at most about £3.10 in a 31-day month.
-- **Still to do live:** an enquiry, a passing and a failing test payment, and a refund, each on a real phone. These pass in tests on a local copy.
+- **Tested by hand on the live site on 4 November 2026, on a laptop browser set to phone size:** an enquiry, a passing and a failing test payment, and a refund. All four did what they should, and the database and Stripe's records confirm it. None of this has been done on a real phone yet.
 
 ## Our approach
 

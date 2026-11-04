@@ -46,4 +46,6 @@ Reasonable for a demo with nothing to sell. A real client's site should fix thes
 
 ## Not checked
 
-Real phones and keyboards, real screen readers, the signed-in admin page on the live site, a live payment, live visitor limits, the 7-day deletion job running on schedule, and each photo's licence page beyond the record in `CREDITS.md`.
+Real phones and keyboards, real screen readers, live visitor limits, the 7-day deletion job running on schedule, and each photo's licence page beyond the record in `CREDITS.md`.
+
+The review itself did not cover the signed-in admin page on the live site or a live payment. Both were tried by hand on 4 November 2026, as normal use and not as an attack test: a test payment, a declined card, and a sign-in and refund from the admin page all worked, and Stripe's records confirm them.
